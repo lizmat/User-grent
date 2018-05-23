@@ -6,7 +6,7 @@ plan 16;
 {
     use User::grent;
     for <&getgrnam &getgrgid &getgrent &setgrent &endgrent &getgr> -> $name {
-       ok OUTER::MY::<<$name>>, "is $name imported by default?";
+       ok OUTER::MY::<<$name>>:exists, "is $name imported by default?";
     }
 }
 
