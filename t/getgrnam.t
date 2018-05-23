@@ -28,7 +28,6 @@ my $seen_me;
 while getgrent() -> $gr {
     $seen_me = True if $gr.name eq $groupname && $gr.gid == $groupid;
     ++$seen;
-    last if $seen == 300;
 }
 
 ok $seen_me, 'did we see ourselves';
