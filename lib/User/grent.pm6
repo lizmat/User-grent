@@ -77,7 +77,7 @@ User::grent - Port of Perl 5's User::grent
 
 =head1 DESCRIPTION
 
-This module's default exports C<getgrent>, C<getgruid>, and C<getgrnam>
+This module's default exports C<getgrent>, C<getgrgid>, and C<getgrnam>
 functions, replacing them with versions that return C<User::grent> objects.
 This object has methods that return the similarly named structure field name
 from the C's passwd structure from grp.h; namely name, passwd, gid, and members

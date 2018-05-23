@@ -2,7 +2,7 @@ use v6.c;
 use Test;
 use User::grent;
 
-plan 15;
+plan 17;
 
 my int $groupid = +$*GROUP;
 ok $groupid > 0, 'did we get a group ID';
@@ -40,5 +40,8 @@ is endgrent, 1, 'did we return the undocumented 1';
 
 is getgrnam("thisnameshouldnotexist"), Nil, 'non-existing name';
 is getgrgid(9999), Nil, 'non-existing gid';
+
+is getgr(+$*GROUP).name, ~$*GROUP, 'does int lookup give name';
+is getgr(~$*GROUP).gid,  +$*GROUP, 'does name lookup give int';
 
 # vim: ft=perl6 expandtab sw=4

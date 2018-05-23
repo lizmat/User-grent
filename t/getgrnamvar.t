@@ -2,7 +2,7 @@ use v6.c;
 use Test;
 use User::grent :FIELDS;
 
-plan 13;
+plan 15;
 
 my int $groupid = +$*GROUP;
 ok $groupid > 0, 'did we get a group ID';
@@ -41,5 +41,10 @@ getgrnam("thisnameshouldnotexist"),
 nok defined($gr_name), 'non-existing name';
 getgrgid(9999);
 nok defined($gr_gid), 'non-existing gid';
+
+getgr(+$*GROUP);
+is $gr_name, ~$*GROUP, 'does int lookup give name';
+getgr(~$*GROUP);
+is $gr_gid,  +$*GROUP, 'does name lookup give int';
 
 # vim: ft=perl6 expandtab sw=4

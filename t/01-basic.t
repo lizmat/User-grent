@@ -12,11 +12,9 @@ plan 16;
 
 {
     use User::grent :FIELDS;
-    for <&getgrnam &getgrgid &getgrent &setgrent &endgrent &getgr> -> $name {
-       ok OUTER::MY::<<$name>>, "is $name imported by default?";
-    }
-    for <$gr_name $gr_passwd $gr_gid @gr_members> -> $name {
-       ok GLOBAL::<<$name>>, "is $name imported by default?";
+    for <&getgrnam &getgrgid &getgrent &setgrent &endgrent &getgr
+         $gr_name $gr_passwd $gr_gid @gr_members> -> $name {
+       ok OUTER::MY::<<$name>>:exists, "is $name imported by default?";
     }
 }
 

@@ -25,7 +25,7 @@ SYNOPSIS
 DESCRIPTION
 ===========
 
-This module's default exports `getgrent`, `getgruid`, and `getgrnam` functions, replacing them with versions that return `User::grent` objects. This object has methods that return the similarly named structure field name from the C's passwd structure from grp.h; namely name, passwd, gid, and members (not mem). The first three return scalars, the last an array.
+This module's default exports `getgrent`, `getgrgid`, and `getgrnam` functions, replacing them with versions that return `User::grent` objects. This object has methods that return the similarly named structure field name from the C's passwd structure from grp.h; namely name, passwd, gid, and members (not mem). The first three return scalars, the last an array.
 
 You may also import all the structure fields directly into your namespace as regular variables using the :FIELDS import tag. (Note that this still exports the functions.) Access these fields as variables named with a preceding gr_. Thus, `$group_obj.gid` corresponds to `$gr_gid` if you import the fields.
 
