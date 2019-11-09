@@ -1,9 +1,7 @@
-[![Build Status](https://travis-ci.org/lizmat/User-grent.svg?branch=master)](https://travis-ci.org/lizmat/User-grent)
-
 NAME
 ====
 
-User::grent - Port of Perl 5's User::grent
+User::grent - Port of Perl's User::grent
 
 SYNOPSIS
 ========
@@ -41,9 +39,9 @@ Source can be located at: https://github.com/lizmat/User-grent . Comments and Pu
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018 Elizabeth Mattijsen
+Copyright 2018-2019 Elizabeth Mattijsen
 
-Re-imagined from Perl 5 as part of the CPAN Butterfly Plan.
+Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

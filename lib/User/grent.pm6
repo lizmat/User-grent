@@ -5,7 +5,7 @@ our $gr_passwd  is export(:FIELDS);
 our $gr_gid     is export(:FIELDS);
 our @gr_members is export(:FIELDS);
 
-class User::grent:ver<0.0.1>:auth<cpan:ELIZABETH> {
+class User::grent:ver<0.0.2>:auth<cpan:ELIZABETH> {
     has Str $.name;
     has Str $.passwd;
     has Int $.gid;
@@ -57,7 +57,7 @@ my constant &endgrent is export(:DEFAULT:FIELDS) = do {
 
 =head1 NAME
 
-User::grent - Port of Perl 5's User::grent
+User::grent - Port of Perl's User::grent
 
 =head1 SYNOPSIS
 
@@ -100,9 +100,9 @@ Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018 Elizabeth Mattijsen
+Copyright 2018-2019 Elizabeth Mattijsen
 
-Re-imagined from Perl 5 as part of the CPAN Butterfly Plan.
+Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
