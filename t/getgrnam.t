@@ -1,4 +1,4 @@
-use v6.c;
+use v6.*;
 use Test;
 use User::grent;
 
@@ -43,4 +43,4 @@ is getgrgid(9999), Nil, 'non-existing gid';
 is getgr(+$*GROUP).name, ~$*GROUP, 'does int lookup give name';
 is getgr(~$*GROUP).gid,  +$*GROUP, 'does name lookup give int';
 
-# vim: ft=perl6 expandtab sw=4
+# vim: expandtab shiftwidth=4

@@ -1,11 +1,11 @@
-use v6.c;
+use v6.*;
 
 our $gr_name    is export(:FIELDS);
 our $gr_passwd  is export(:FIELDS);
 our $gr_gid     is export(:FIELDS);
 our @gr_members is export(:FIELDS);
 
-class User::grent:ver<0.0.2>:auth<cpan:ELIZABETH> {
+class User::grent:ver<0.0.3>:auth<cpan:ELIZABETH> {
     has Str $.name;
     has Str $.passwd;
     has Int $.gid;
@@ -31,15 +31,18 @@ sub populate(@fields) {
 }
 
 my sub getgrnam(Str() $name) is export(:DEFAULT:FIELDS) {
-    use P5getgrnam; populate(getgrnam($name))
+    use P5getgrnam:ver<0.0.8>:auth<cpan:ELIZABETH>;
+    populate(getgrnam($name))
 }
 
 my sub getgrgid(Int() $gid) is export(:DEFAULT:FIELDS) {
-    use P5getgrnam; populate(getgrgid($gid))
+    use P5getgrnam:ver<0.0.8>:auth<cpan:ELIZABETH>;
+    populate(getgrgid($gid))
 }
 
 my sub getgrent() is export(:DEFAULT:FIELDS) {
-    use P5getgrnam; populate(getgrent)
+    use P5getgrnam:ver<0.0.8>:auth<cpan:ELIZABETH>;
+    populate(getgrent)
 }
 
 my proto sub getgr(|) is export(:DEFAULT:FIELDS) {*}
@@ -47,17 +50,19 @@ my multi sub getgr(Int:D $gid) is export(:DEFAULT:FIELDS) { getgrgid($gid) }
 my multi sub getgr(Str:D $nam) is export(:DEFAULT:FIELDS) { getgrnam($nam) }
 
 my constant &setgrent is export(:DEFAULT:FIELDS) = do {
-    use P5getgrnam; &setgrent
+    use P5getgrnam:ver<0.0.8>:auth<cpan:ELIZABETH>;
+    &setgrent
 }
 my constant &endgrent is export(:DEFAULT:FIELDS) = do {
-    use P5getgrnam; &endgrent
+    use P5getgrnam:ver<0.0.8>:auth<cpan:ELIZABETH>;
+    &endgrent
 }
 
 =begin pod
 
 =head1 NAME
 
-User::grent - Port of Perl's User::grent
+Raku port of Perl's User::grent module
 
 =head1 SYNOPSIS
 
@@ -77,6 +82,9 @@ User::grent - Port of Perl's User::grent
 
 =head1 DESCRIPTION
 
+This module tries to mimic the behaviour of Perl's C<User::grent> module
+as closely as possible in the Raku Programming Language.
+
 This module's default exports C<getgrent>, C<getgrgid>, and C<getgrnam>
 functions, replacing them with versions that return C<User::grent> objects.
 This object has methods that return the similarly named structure field name
@@ -91,6 +99,12 @@ Thus, C<$group_obj.gid> corresponds to C<$gr_gid> if you import the fields.
 The C<getgr> function is a simple front-end that forwards a numeric argumenti
 to C<getgrgid> and the rest to C<getgrnam>.
 
+=head1 PORTING CAVEATS
+
+This module depends on the availability of POSIX semantics.  This is
+generally not available on Windows, so this module will probably not work
+on Windows.
+
 =head1 AUTHOR
 
 Elizabeth Mattijsen <liz@wenzperl.nl>
@@ -100,7 +114,7 @@ Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018-2019 Elizabeth Mattijsen
+Copyright 2018-2020 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
@@ -108,4 +122,4 @@ This library is free software; you can redistribute it and/or modify it under th
 
 =end pod
 
-# vim: ft=perl6 expandtab sw=4
+# vim: expandtab shiftwidth=4

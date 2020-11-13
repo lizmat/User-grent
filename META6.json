@@ -1,25 +1,28 @@
 {
-  "auth" : "cpan:ELIZABETH",
-  "authors" : [
+  "auth": "cpan:ELIZABETH",
+  "authors": [
     "Elizabeth Mattijsen"
   ],
-  "build-depends" : [ ],
-  "depends" : [
-    "P5getgrnam:ver<0.0.7>"
+  "build-depends": [
   ],
-  "description" : "Port of Perl's User::grent",
-  "license" : "Artistic-2.0",
-  "name" : "User::grent",
-  "perl" : "6.c",
-  "provides" : {
-    "User::grent" : "lib/User/grent.pm6"
+  "depends": [
+    "P5getgrnam:ver<0.0.8>:auth<cpan:ELIZABETH>"
+  ],
+  "description": "Raku port of Perl's User::grent module",
+  "license": "Artistic-2.0",
+  "name": "User::grent",
+  "perl": "6.c",
+  "provides": {
+    "User::grent": "lib/User/grent.pm6"
   },
-  "resources" : [ ],
-  "source-url" : "https://github.com/lizmat/User-grent.git",
-  "tags" : [
+  "resources": [
+  ],
+  "source-url": "https://github.com/lizmat/User-grent.git",
+  "tags": [
     "UTILS",
     "CPAN5"
   ],
-  "test-depends" : [ ],
-  "version" : "0.0.2"
+  "test-depends": [
+  ],
+  "version": "0.0.3"
 }

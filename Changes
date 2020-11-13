@@ -2,6 +2,13 @@ Revision history for User-grent
 
 {{$NEXT}}
 
+0.0.3  2020-11-13T12:59:28+01:00
+    - Change name of distribution
+    - Force to highest possible Raku version
+    - Update copyright year
+    - Tighten up dependency on P5localtime
+    - Add PORTING CAVEATS section about needing POSIX semantics
+
 0.0.2  2019-11-09T22:57:32+01:00
     - Changed Perl 5 to Perl
 
