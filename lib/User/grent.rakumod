@@ -5,7 +5,7 @@ our $gr_passwd  is export(:FIELDS);
 our $gr_gid     is export(:FIELDS);
 our @gr_members is export(:FIELDS);
 
-class User::grent:ver<0.0.3>:auth<cpan:ELIZABETH> {
+class User::grent:ver<0.0.4>:auth<zef:lizmat> {
     has Str $.name;
     has Str $.passwd;
     has Int $.gid;
@@ -31,17 +31,17 @@ sub populate(@fields) {
 }
 
 my sub getgrnam(Str() $name) is export(:DEFAULT:FIELDS) {
-    use P5getgrnam:ver<0.0.8>:auth<cpan:ELIZABETH>;
+    use P5getgrnam:ver<0.0.9>:auth<zef:lizmat>;
     populate(getgrnam($name))
 }
 
 my sub getgrgid(Int() $gid) is export(:DEFAULT:FIELDS) {
-    use P5getgrnam:ver<0.0.8>:auth<cpan:ELIZABETH>;
+    use P5getgrnam:ver<0.0.9>:auth<zef:lizmat>;
     populate(getgrgid($gid))
 }
 
 my sub getgrent() is export(:DEFAULT:FIELDS) {
-    use P5getgrnam:ver<0.0.8>:auth<cpan:ELIZABETH>;
+    use P5getgrnam:ver<0.0.9>:auth<zef:lizmat>;
     populate(getgrent)
 }
 
@@ -50,11 +50,11 @@ my multi sub getgr(Int:D $gid) is export(:DEFAULT:FIELDS) { getgrgid($gid) }
 my multi sub getgr(Str:D $nam) is export(:DEFAULT:FIELDS) { getgrnam($nam) }
 
 my constant &setgrent is export(:DEFAULT:FIELDS) = do {
-    use P5getgrnam:ver<0.0.8>:auth<cpan:ELIZABETH>;
+    use P5getgrnam:ver<0.0.9>:auth<zef:lizmat>;
     &setgrent
 }
 my constant &endgrent is export(:DEFAULT:FIELDS) = do {
-    use P5getgrnam:ver<0.0.8>:auth<cpan:ELIZABETH>;
+    use P5getgrnam:ver<0.0.9>:auth<zef:lizmat>;
     &endgrent
 }
 
@@ -107,14 +107,14 @@ on Windows.
 
 =head1 AUTHOR
 
-Elizabeth Mattijsen <liz@wenzperl.nl>
+Elizabeth Mattijsen <liz@raku.rocks>
 
 Source can be located at: https://github.com/lizmat/User-grent . Comments and
 Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018-2020 Elizabeth Mattijsen
+Copyright 2018, 2019, 2020, 2021 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
